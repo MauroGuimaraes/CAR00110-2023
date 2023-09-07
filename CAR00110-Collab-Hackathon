@@ -51,3 +51,65 @@ dtprevalencia$varCVD <- as.character(dtprevalencia$varCVD)
 dtprevalencia$varRP <- as.numeric(dtprevalencia$varRP)
 dtprevalencia$varLL <- as.numeric(dtprevalencia$varLL)
 dtprevalencia$varUL <- as.numeric(dtprevalencia$varUL) 
+
+######################################################
+### Aula de revisão CAR00100 ###
+## 07092023 ##
+#loading requiring packages
+library(pacman)
+pacman::p_load(tidyverse, 
+ggplot, 
+gt)
+
+### criando dados para plot
+
+#Angina prevalence
+prevAngEst <- as.numeric(0.94)
+llAngEst <- as.numeric(0.99)
+ulAnEst <- as.numeric(0.90)
+
+#Arrithmya prevalence
+prevArritmia <- as.numeric(0.98)
+llArritmia <- as.numeric(0.94)
+ulArritmia <- as.numeric(1.02)
+
+#Heart Failure prevalence
+prevHeartFealure <- as.numeric(1.03)
+llHeartFealure  <- as.numeric(0.98)
+ulHeartFealure  <- as.numeric(1.08)
+
+#Stroke prevalence
+prevStroke <- as.numeric(1.12)
+llStroke  <- as.numeric(1.06)
+ulStroke  <- as.numeric(1.18)
+
+# Definindo variáveis
+varCVD <- c(0,5,0.6,0.7,0.8)
+varRP <- c(prevAngEst, prevArritmia, prevHeartFealure, prevStroke)
+varLL <- c(llAngEst,  llArritmia, llHeartFealure, llStroke)
+varUL <- c(ulAnEst, ulArritmia, ulHeartFealure, ulStroke)
+
+# Definindo estruturas CV, RP, LL e UL
+
+dtPrevalencia <- cbind(varCVD, varRP, varLL, varUL)
+dtPrevalencia <- as.data.frame(dtPrevalencia)
+
+glimpse(dtPrevalencia)
+
+### Transformação Variáveis numéricas
+
+dtPrevalencia$varCVD <- as.character(dtPrevalencia$varCVD)
+dtPrevalencia$varRP <- as.numeric(dtPrevalencia$varCVD)
+dtPrevalencia$varLL <- as.numeric(dtPrevalencia$varLL)
+dtPrevalencia$varUL <- as.numeric(dtPrevalencia$varUL)
+
+
+
+
+
+
+
+
+
+
+
